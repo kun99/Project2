@@ -11,9 +11,10 @@ class LeagueTable extends StatefulWidget {
 }
 
 class _LeagueTableState extends State<LeagueTable> {
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: Dashboard(),
     );
   }
