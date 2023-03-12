@@ -122,7 +122,7 @@ class _NFLLeagueTableState extends State<NFLLeagueTable> {
                       padding: EdgeInsets.only(top: 36.0, left: 6.0, right: 6.0, bottom: 6.0),
                       child: ExpansionTile(
                         title: Text(
-                          'AL WEST',
+                          'AFC WEST',
                           style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                           textAlign: TextAlign.left,
                         ),

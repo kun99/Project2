@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'match_page.dart';
+import 'dashboard.dart';
 
-List<String> homeTeams = [
-  'Home team 1', 'Home team 2', 'Home team 3', 'Home team 4', 'Home team 5', 'Home team 6', 'Home team 7'
-];
 List<String> awayTeams = [
   'Away team 1', 'Away team 2', 'Away team 3', 'Away team 4', 'Away team 5', 'Away team 6', 'Away team 7'
 ];
@@ -10,29 +9,40 @@ List<String> awayTeams = [
 class TeamSchedule extends StatefulWidget {
 
   final String leagueName;
-  TeamSchedule(this.leagueName);
+  final String teamName;
+  TeamSchedule(this.teamName, this.leagueName);
 
   @override
-  State<TeamSchedule> createState() => _TeamScheduleState(leagueName);
+  State<TeamSchedule> createState() => _TeamScheduleState(teamName, leagueName);
 }
 
 class _TeamScheduleState extends State<TeamSchedule> {
+  final String teamName;
   final String leagueName;
-  _TeamScheduleState(this.leagueName);
+  _TeamScheduleState(this.teamName, this.leagueName);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('${leagueName} Schedule'),
+        title: Text('${teamName} Schedule'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.dashboard),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                  builder: (context) => Dashboard()), (route) => false);
+            },
+          ),
+        ],
       ),
       body: GridView.builder(
         gridDelegate:
         const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        itemCount: homeTeams.length,
+        itemCount: awayTeams.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             child: Card(
@@ -40,7 +50,7 @@ class _TeamScheduleState extends State<TeamSchedule> {
               child: Column(
                 children: [
                   SizedBox(height: 20),
-                  Text(homeTeams[index]),
+                  Text(teamName),
                   SizedBox(height: 50),
                   Text(
                     'Date of game or result of game',
@@ -52,7 +62,7 @@ class _TeamScheduleState extends State<TeamSchedule> {
               ),
             ),
             onTap: () {
-
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Match(leagueName, teamName, awayTeams[index])));
             },
           );
         },

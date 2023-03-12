@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project2/schedule.dart';
 
+import '../team_schedule.dart';
+
 class NBALeagueTable extends StatefulWidget {
 
   final String leagueName;
@@ -70,6 +72,7 @@ class _NBALeagueTableState extends State<NBALeagueTable> {
           ),
           if(index==0)...[
             DataTable(
+              showCheckboxColumn: false,
               columnSpacing: 15,
               //make api calls using league name
               columns: const [
@@ -83,42 +86,51 @@ class _NBALeagueTableState extends State<NBALeagueTable> {
                 DataColumn(label: Text('Strk')),
               ],
               rows: [
-                DataRow(cells: [
-                  DataCell(Text('1',textAlign: TextAlign.center,)),
-                  DataCell(
-                    Container(
-                        width: 100,
-                        child: Text('Nuggets')
-                    )
-                  ),
-                  DataCell(Text('46')),
-                  DataCell(Text('21')),
-                  DataCell(Text('.687')),
-                  DataCell(Text('-')),
-                  DataCell(Text('7-3')),
-                  DataCell(Text('L2')),
-                ],
+                DataRow(
+                  cells: [
+                    DataCell(Text('1',textAlign: TextAlign.center,)),
+                    DataCell(
+                      Container(
+                          width: 100,
+                          child: Text('Nuggets')
+                      )
+                    ),
+                    DataCell(Text('46')),
+                    DataCell(Text('21')),
+                    DataCell(Text('.687')),
+                    DataCell(Text('-')),
+                    DataCell(Text('7-3')),
+                    DataCell(Text('L2')),
+                  ],
+                  onSelectChanged: (newValue) {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TeamSchedule('Nuggets', leagueName)));
+                  },
                 ),
-                DataRow(cells: [
-                  DataCell(Text('2')),
-                  DataCell(
-                    Container(
-                      width: 100,
-                      child: Text('Kings')
-                    )
-                  ),
-                  DataCell(Text('40')),
-                  DataCell(Text('26')),
-                  DataCell(Text('.606')),
-                  DataCell(Text('5.5')),
-                  DataCell(Text('8-2')),
-                  DataCell(Text('W3')),
-                ]
+                DataRow(
+                  cells: [
+                    DataCell(Text('2')),
+                    DataCell(
+                      Container(
+                        width: 100,
+                        child: Text('Kings')
+                      )
+                    ),
+                    DataCell(Text('40')),
+                    DataCell(Text('26')),
+                    DataCell(Text('.606')),
+                    DataCell(Text('5.5')),
+                    DataCell(Text('8-2')),
+                    DataCell(Text('W3')),
+                  ],
+                  onSelectChanged: (newValue) {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TeamSchedule('Kings', leagueName)));
+                  },
                 ),
               ],
             ),
           ]else...[
             DataTable(
+              showCheckboxColumn: false,
               columnSpacing: 15,
               //make api calls using league name
               columns: const [
@@ -132,37 +144,45 @@ class _NBALeagueTableState extends State<NBALeagueTable> {
                 DataColumn(label: Text('Strk')),
               ],
               rows: [
-                DataRow(cells: [
-                  DataCell(Text('1',textAlign: TextAlign.center,)),
-                  DataCell(
-                    Container(
-                      width: 100,
-                      child: Text('Bucks')
-                    )
-                  ),
-                  DataCell(Text('48')),
-                  DataCell(Text('19')),
-                  DataCell(Text('.716')),
-                  DataCell(Text('-')),
-                  DataCell(Text('8-2')),
-                  DataCell(Text('L1')),
-                ],
+                DataRow(
+                  cells: [
+                    DataCell(Text('1',textAlign: TextAlign.center,)),
+                    DataCell(
+                      Container(
+                        width: 100,
+                        child: Text('Bucks')
+                      )
+                    ),
+                    DataCell(Text('48')),
+                    DataCell(Text('19')),
+                    DataCell(Text('.716')),
+                    DataCell(Text('-')),
+                    DataCell(Text('8-2')),
+                    DataCell(Text('L1')),
+                  ],
+                  onSelectChanged: (newValue) {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TeamSchedule('Bucks', leagueName)));
+                  },
                 ),
-                DataRow(cells: [
-                  DataCell(Text('2')),
-                  DataCell(
-                    Container(
-                      width: 100,
-                      child: Text('Celtics')
-                    )
-                  ),
-                  DataCell(Text('47')),
-                  DataCell(Text('21')),
-                  DataCell(Text('.691')),
-                  DataCell(Text('1.5')),
-                  DataCell(Text('6-4')),
-                  DataCell(Text('W2')),
-                ]
+                DataRow(
+                  cells: [
+                    DataCell(Text('2')),
+                    DataCell(
+                      Container(
+                        width: 100,
+                        child: Text('Celtics')
+                      )
+                    ),
+                    DataCell(Text('47')),
+                    DataCell(Text('21')),
+                    DataCell(Text('.691')),
+                    DataCell(Text('1.5')),
+                    DataCell(Text('6-4')),
+                    DataCell(Text('W2')),
+                  ],
+                  onSelectChanged: (newValue) {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TeamSchedule('Celtics', leagueName)));
+                  },
                 ),
               ],
             ),

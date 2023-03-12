@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project2/dashboard.dart';
+import 'match_page.dart';
 
 List<String> homeTeams = [
   'Home team 1', 'Home team 2', 'Home team 3', 'Home team 4', 'Home team 5', 'Home team 6', 'Home team 7'
@@ -26,6 +28,15 @@ class _ScheduleState extends State<Schedule> {
       appBar: AppBar(
         centerTitle: true,
         title: Text('${leagueName} Schedule'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.dashboard),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                  builder: (context) => Dashboard()), (route) => false);
+            },
+          ),
+        ],
       ),
       body: GridView.builder(
         gridDelegate:
@@ -52,7 +63,7 @@ class _ScheduleState extends State<Schedule> {
               ),
             ),
             onTap: () {
-
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Match(leagueName, homeTeams[index], awayTeams[index])));
             },
           );
         },

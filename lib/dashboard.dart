@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:project2/user_page.dart';
+import 'package:tuple/tuple.dart';
 import 'league_tables/basketball_league_table.dart';
 import 'league_tables/mlb_league_table.dart';
 import 'league_tables/mls_league_table.dart';
 import 'league_tables/nba_league_table.dart';
 import 'league_tables/nfl_league_table.dart';
 import 'league_tables/soccer_league_table.dart';
-import 'package:tuple/tuple.dart';
 
 //leagues that user selects will be in this first list (info from onboarding)
 List<Tuple2<String, int>> leagues = [
