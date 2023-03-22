@@ -32,8 +32,8 @@ class _ScheduleState extends State<Schedule> {
           IconButton(
             icon: const Icon(Icons.dashboard),
             onPressed: () {
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-                  builder: (context) => Dashboard()), (route) => false);
+              // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+              //     builder: (context) => Dashboard()), (route) => false);
             },
           ),
         ],

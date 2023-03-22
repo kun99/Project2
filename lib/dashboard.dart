@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project2/user_page.dart';
-import 'package:tuple/tuple.dart';
 import 'league_tables/basketball_league_table.dart';
 import 'league_tables/mlb_league_table.dart';
 import 'league_tables/mls_league_table.dart';
@@ -8,32 +7,23 @@ import 'league_tables/nba_league_table.dart';
 import 'league_tables/nfl_league_table.dart';
 import 'league_tables/soccer_league_table.dart';
 
-//leagues that user selects will be in this first list (info from onboarding)
-List<Tuple2<String, int>> leagues = [
-  Tuple2<String, int>('MLS', 1),
-  Tuple2<String, int>('NBA', 2),
-  Tuple2<String, int>('MLB', 3),
-  Tuple2<String, int>('NFL', 4),
-];
-//leagues that the user hasn't selected will be put in this list
-List<Tuple2<String, int>> unfollowedLeagues = [
-  Tuple2<String, int>('EPL', 5),
-  Tuple2<String, int>('Bundesliga', 5),
-  Tuple2<String, int>('Serie A', 5),
-  Tuple2<String, int>('La Liga', 5),
-  Tuple2<String, int>('EuroLeague', 6),
-  Tuple2<String, int>('Ligue 1', 5),
-  Tuple2<String, int>('This is scrollable', 7),
-];
-
 class Dashboard extends StatefulWidget {
-  const Dashboard({Key? key}) : super(key: key);
+
+  final leagues;
+  final unfollowedLeagues;
+
+  Dashboard(this.leagues, this.unfollowedLeagues);
 
   @override
-  State<Dashboard> createState() => _DashboardState();
+  State<Dashboard> createState() => _DashboardState(leagues, unfollowedLeagues);
 }
 
 class _DashboardState extends State<Dashboard> {
+
+  final leagues;
+  final unfollowedLeagues;
+
+  _DashboardState(this.leagues, this.unfollowedLeagues);
 
   @override
   Widget build(BuildContext context) {

@@ -73,7 +73,11 @@ class _MatchState extends State<Match> {
                               child: TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    index = 0;
+                                    if(index==0){
+                                      index=-1;
+                                    } else{
+                                      index = 0;
+                                    }
                                   });
                                 },
                               child: Text('LINEUPS'),
@@ -84,7 +88,11 @@ class _MatchState extends State<Match> {
                               child: TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    index = 1;
+                                    if(index==1){
+                                      index=-1;
+                                    } else{
+                                      index = 1;
+                                    }
                                   });
                                 },
                                 child: Text('STATS'),
@@ -101,7 +109,7 @@ class _MatchState extends State<Match> {
                     height: 380,
                     width: 380,
                     child: Card(
-                      child: Text('Lineup of teams', textAlign: TextAlign.center,),
+                      child: Image(image: AssetImage('images/sampleFormation.png')),
                     ),
                   )
                 ]else if(index==1)... [
@@ -109,7 +117,7 @@ class _MatchState extends State<Match> {
                     height: 380,
                     width: 380,
                     child: Card(
-                      child: Text('Statistics', textAlign: TextAlign.center,),
+                      child: Image(image: AssetImage('images/sampleStats.png')),
                     ),
                   )
                 ],
@@ -124,7 +132,11 @@ class _MatchState extends State<Match> {
                             child: TextButton(
                               onPressed: () {
                                 setState(() {
-                                  secondIndex = 0;
+                                  if(secondIndex==0){
+                                    secondIndex=-1;
+                                  } else{
+                                    secondIndex = 0;
+                                  }
                                 });
                               },
                               child: Text('WEATHER'),
@@ -135,7 +147,11 @@ class _MatchState extends State<Match> {
                             child: TextButton(
                               onPressed: () {
                                 setState(() {
-                                  secondIndex = 1;
+                                  if(secondIndex==1){
+                                    secondIndex=-1;
+                                  } else{
+                                    secondIndex = 1;
+                                  }
                                 });
                               },
                               child: Text('LOCATION'),
@@ -156,7 +172,12 @@ class _MatchState extends State<Match> {
                     Container(
                       height: 150,
                       child: Card(
-                        child: Text('Location', textAlign: TextAlign.center,),
+                        child: Column(
+                          children: [
+                            Image(image: AssetImage('images/sampleArena.jpg')),
+                            Text('Ball Arena')
+                          ],
+                        ),
                       ),
                     )
                   ],

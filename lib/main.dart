@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dashboard.dart';
+import 'league_selection.dart';
 
 void main() => runApp(const LeagueTable());
 
@@ -15,7 +15,8 @@ class _LeagueTableState extends State<LeagueTable> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Dashboard(),
+      //home: Dashboard(),
+      home: SelectLeague(),
     );
   }
 }
